@@ -9,7 +9,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - bionic
-    - name: Centos
+    - name: EL
       versions:
         - 8
   galaxy_tags: []
