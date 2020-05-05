@@ -45,3 +45,12 @@
     validate: "visudo -cf %s"
   with_items: "{{ common_sudoers }}"
   become: yes
+
+- name: Set the Hostname
+  hostname:
+    name: "{{ common_hostname }}"
+  register: result
+  failed_when:
+    - result.failed
+    - ansible_virtualization_type != 'docker'
+  become: yes
