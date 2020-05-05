@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: common
   author: Mark Honomichl
   description: Common Ansible Role
   company: ACG
