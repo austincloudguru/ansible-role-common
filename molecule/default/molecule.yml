@@ -5,13 +5,24 @@ driver:
   name: docker
 lint:
   name: yamllint
+  options:
+    config-file: molecule/default/yamllint.yml
 platforms:
-  - name: instance
-    image: centos:7
+  - name: ubuntu-18.04
+    image: ubuntu:18.04
+    privileged: True
+    command: /sbin/init
+  - name: centos-8
+    image: centos:8
+    privileged: True
+    command: /sbin/init
 provisioner:
   name: ansible
+  log: true
   lint:
     name: ansible-lint
+scenario:
+  name: default
 verifier:
   name: testinfra
   lint:
