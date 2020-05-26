@@ -3,3 +3,4 @@
 *.retry
 
 .idea/
+molecule/default/tests/__pycache__/
