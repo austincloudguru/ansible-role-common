@@ -20,7 +20,7 @@
   user:
     name: "{{ item.name }}"
     uid: "{{ item.id }}"
-    group: "{{ item.id }}"
+    group: "{{ item.group }}"
     shell: "{{ item.shell }}"
     state: "{{ item.state }}"
   with_items: "{{ common_users }}"
