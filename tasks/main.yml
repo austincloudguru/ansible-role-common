@@ -64,9 +64,8 @@
   register: result
   failed_when:
     - result.failed
-    - ansible_virtualization_type != 'docker'
+    - ansible_virtualization_type != 'docker' or ansible_virtualization_type != 'containerd'
   become: yes
-
 
 #------------------------------------------------------------------------------
 # Set the Login Warning Banner
