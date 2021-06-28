@@ -54,6 +54,10 @@
   with_items: "{{ common_sudoers }}"
   become: yes
 
+- name: Get Virtualization Type
+  debug:
+    var: ansible_virtualization_type
+
 - name: Set the Hostname
   hostname:
     name: "{{ common_hostname }}"
@@ -63,12 +67,13 @@
     - ansible_virtualization_type != 'docker'
   become: yes
 
+
 #------------------------------------------------------------------------------
 # Set the Login Warning Banner
 #------------------------------------------------------------------------------
 - name: Set Warning Banner for Standard Login Services
   copy:
-    content: "{{ motd }}"
+    content: "{{ common_motd }}"
     dest: "{{ item }}"
     mode: 0644
     backup: yes
