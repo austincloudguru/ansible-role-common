@@ -1,10 +1,17 @@
 Common
 =========
-Role for common things that are installed on every server.  Right now, it just manages users/groups/sudoers and installs zsh.  It's not really for anybody else but me.
+Role for common things that are installed on every server.  
+
+Actions Completed:
+  - Users
+  - Gropuip
+
+
+Right now, it just manages users/groups/sudoers and installs zsh.  It's not really for anybody else but me.
 
 Requirements
 ------------
-This role is tested on Ubuntu 18.04 and CentOS8.  
+This role is tested on Ubuntu 18.04 and Amazon Linux 2.  
 
 Role Variables
 --------------
