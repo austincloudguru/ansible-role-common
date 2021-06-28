@@ -2,54 +2,54 @@
 - name: Include OS Specific Variables
   include_vars: "{{ ansible_os_family }}.yml"
 
-# - name: Install Extra Packages
-#   package:
-#     name: "{{ common_package_list }}"
-#     state: present
-#   become: yes
+- name: Install Extra Packages
+  package:
+    name: "{{ common_package_list }}"
+    state: present
+  become: yes
 
-# - name: Create User Groups
-#   group:
-#     name: "{{ item.name }}"
-#     gid: "{{ item.id }}"
-#     state: "{{ item.state }}"
-#   with_items: "{{ common_groups }}"
-#   become: yes
+- name: Create User Groups
+  group:
+    name: "{{ item.name }}"
+    gid: "{{ item.id }}"
+    state: "{{ item.state }}"
+  with_items: "{{ common_groups }}"
+  become: yes
 
-# - name: Create User Accounts
-#   user:
-#     name: "{{ item.name }}"
-#     uid: "{{ item.id }}"
-#     group: "{{ item.group }}"
-#     shell: "{{ item.shell }}"
-#     state: "{{ item.state }}"
-#   with_items: "{{ common_users }}"
-#   become: yes
+- name: Create User Accounts
+  user:
+    name: "{{ item.name }}"
+    uid: "{{ item.id }}"
+    group: "{{ item.group }}"
+    shell: "{{ item.shell }}"
+    state: "{{ item.state }}"
+  with_items: "{{ common_users }}"
+  become: yes
 
-# - name: Add Authorized Key
-#   authorized_key:
-#     user: "{{ item.name }}"
-#     state: "{{ item.state }}"
-#     key: "{{ item.ssh_key }}"
-#   with_items: "{{ common_users }}"
-#   become: yes
+- name: Add Authorized Key
+  authorized_key:
+    user: "{{ item.name }}"
+    state: "{{ item.state }}"
+    key: "{{ item.ssh_key }}"
+  with_items: "{{ common_users }}"
+  become: yes
 
-# - name: Add groups to sudo
-#   lineinfile:
-#     path: /etc/sudoers.d/{{ item.name }}
-#     line: "%{{ item.name }} {{ item.permission }}"
-#     state: "{{ item.state }}"
-#     mode: 0440
-#     create: yes
-#     validate: "visudo -cf %s"
-#   with_items: "{{ common_sudoers }}"
-#   become: yes
+- name: Add groups to sudo
+  lineinfile:
+    path: /etc/sudoers.d/{{ item.name }}
+    line: "%{{ item.name }} {{ item.permission }}"
+    state: "{{ item.state }}"
+    mode: 0440
+    create: yes
+    validate: "visudo -cf %s"
+  with_items: "{{ common_sudoers }}"
+  become: yes
 
-# - name: Set the Hostname
-#   hostname:
-#     name: "{{ common_hostname }}"
-#   register: result
-#   failed_when:
-#     - result.failed
-#     - ansible_virtualization_type != 'docker'
-#   become: yes
+- name: Set the Hostname
+  hostname:
+    name: "{{ common_hostname }}"
+  register: result
+  failed_when:
+    - result.failed
+    - ansible_virtualization_type != 'docker'
+  become: yes
