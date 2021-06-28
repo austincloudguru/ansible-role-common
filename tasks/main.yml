@@ -53,3 +53,18 @@
     - result.failed
     - ansible_virtualization_type != 'docker'
   become: yes
+
+#------------------------------------------------------------------------------
+# Set the Login Warning Banner
+#------------------------------------------------------------------------------
+- name: Set Warning Banner for Standard Login Services
+  copy:
+    content: "{{ motd }}"
+    dest: "{{ item }}"
+    mode: 0644
+    backup: yes
+  changed_when: false
+  with_items:
+    - /etc/motd
+    - /etc/issue
+    - /etc/issue.net
