@@ -22,20 +22,21 @@ Role Variables
 Within your playbook, you should set the following Variables
 
     common_groups:
-          - name:
-            id:
-            state:
-        common_users:
-          - name:
-            id:
-            group:
-            state:
-            shell: 
-            ssh_key:  
+      - name:
+        id:
+        state:
+    common_users:
+      - name:
+        id:
+        group:
+        state:
+        shell: 
+        ssh_key:  
     common_sudoers:
       - name: sysadmin
         state: present
         permission: "ALL=(ALL) NOPASSWD:ALL"}
+    common_hostname: 
 
 Dependencies
 ------------
