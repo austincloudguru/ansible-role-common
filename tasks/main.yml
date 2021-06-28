@@ -61,7 +61,7 @@
   failed_when: 
     - result.failed 
     - ansible_virtualization_type != 'docker'
-    - ansible_virtualization_type != 'container'
+    - ansible_virtualization_type != 'containerd'
   become: yes
 
 #------------------------------------------------------------------------------
