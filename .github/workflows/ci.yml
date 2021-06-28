@@ -4,8 +4,10 @@ name: CI
   schedule:
     - cron: "0 8 * * *"
   pull_request:
-  push:
     branches:
+      - master
+  push:
+    branches-ignore:
       - master
 
 defaults:
@@ -41,8 +43,11 @@ jobs:
     strategy:
       matrix:
         distro:
+          - ubuntu:20.04
           - ubuntu:18.04
           - amazonlinux:2
+          - centos:8
+          - centos:7
 
     steps:
       - name: Check out the codebase.
