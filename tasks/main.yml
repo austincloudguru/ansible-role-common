@@ -54,18 +54,13 @@
   with_items: "{{ common_sudoers }}"
   become: yes
 
-- name: Get Virtualization Type
-  debug:
-    var: ansible_virtualization_type
-
 - name: Set the Hostname
   hostname:
     name: "{{ common_hostname }}"
   register: result
-  failed_when:
+  failed_when: 
     - result.failed
-    - ansible_virtualization_type != "docker" or 
-      ansible_virtualization_type != "containerd"
+    - (ansible_virtualization_type != "docker" or ansible_virtualization_type != "containerd")
   become: yes
 
 #------------------------------------------------------------------------------

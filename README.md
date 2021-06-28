@@ -3,11 +3,11 @@ Common
 Role for common things that are installed on every server.  
 
 Actions Completed:
-  - Users
-  - Gropuip
-
-
-Right now, it just manages users/groups/sudoers and installs zsh.  It's not really for anybody else but me.
+- Users.  Creates Users.
+- Group. Creates Groups.
+- Sudoers: Creates individual sudoers files.
+- MOTD: Creates the Message of the Day.
+- Extra Packages. Installs any additional package a system needs
 
 Requirements
 ------------
