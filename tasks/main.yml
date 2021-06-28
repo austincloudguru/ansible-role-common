@@ -59,8 +59,9 @@
     name: "{{ common_hostname }}"
   register: result
   failed_when: 
-    - result.failed
-    - (ansible_virtualization_type != "docker" or ansible_virtualization_type != "containerd")
+    - result.failed 
+    - ansible_virtualization_type != 'docker'
+    - ansible_virtualization_type != 'container'
   become: yes
 
 #------------------------------------------------------------------------------
