@@ -1,13 +1,22 @@
 ---
+#------------------------------------------------------------------------------
+# Include OS Specific Variables
+#------------------------------------------------------------------------------
 - name: Include OS Specific Variables
   include_vars: "{{ ansible_os_family }}.yml"
 
+#------------------------------------------------------------------------------
+# Install Extra Packages
+#------------------------------------------------------------------------------
 - name: Install Extra Packages
   package:
     name: "{{ common_package_list }}"
     state: present
   become: yes
 
+#------------------------------------------------------------------------------
+# Manage Users and Groups
+#------------------------------------------------------------------------------
 - name: Create User Groups
   group:
     name: "{{ item.name }}"
