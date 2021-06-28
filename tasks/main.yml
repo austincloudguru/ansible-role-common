@@ -54,6 +54,9 @@
   with_items: "{{ common_sudoers }}"
   become: yes
 
+#------------------------------------------------------------------------------
+# Set the Hostname
+#------------------------------------------------------------------------------
 - name: Set the Hostname
   hostname:
     name: "{{ common_hostname }}"

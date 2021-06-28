@@ -9,6 +9,7 @@ Actions Completed:
 - Group. Creates Groups.
 - Sudoers: Creates individual sudoers files.
 - MOTD: Creates the Message of the Day.
+- Hostname: Sets the hostname.
 - Extra Packages. Installs any additional package a system needs
 
 Requirements
