@@ -1,6 +1,6 @@
 Common
 =========
-[![CI](https://github.com/austincloudguru/ansible-common/workflows/CI/badge.svg?event=push)](https://github.com/austincloudguru/ansible-role-common/actions?query=workflow%3ACI) 
+[![CI](https://github.com/austincloudguru/ansible-role-common/workflows/CI/badge.svg?event=push)](https://github.com/austincloudguru/ansible-role-common/actions?query=workflow%3ACI) 
 
 Role for common things that are installed on every server.  
 
