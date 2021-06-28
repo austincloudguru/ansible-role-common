@@ -4,3 +4,4 @@
 
 .idea/
 molecule/default/tests/__pycache__/
+**/.cache
