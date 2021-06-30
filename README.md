@@ -1,6 +1,8 @@
 Common
 =========
-[![CI](https://github.com/austincloudguru/ansible-role-common/workflows/CI/badge.svg?event=push)](https://github.com/austincloudguru/ansible-role-common/actions?query=workflow%3ACI) 
+[![Molecule](https://github.com/austincloudguru/ansible-role-common/workflows/Molecule/badge.svg?event=push)](https://github.com/austincloudguru/ansible-role-common/actions?query=workflow%3AMolecule)
+![Latest Version](https://img.shields.io/github/v/tag/austincloudguru/ansible-role-common?sort=semver&label=Latest%20Version) 
+[![License](https://img.shields.io/github/license/austincloudguru/ansible-role-common)](https://github.com/austincloudguru/ansible-role-common/blob/master/LICENSE)
 
 Role for common things that are installed on every server.  
 
