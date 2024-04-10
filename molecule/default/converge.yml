@@ -5,7 +5,7 @@
     common_groups:
       - {name: sysadmin, id: 5000, state: present}
     common_users:
-      - name: mark.honomichl
+      - name: bhope
         id: 5000
         group: sysadmin
         state: present

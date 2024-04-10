@@ -12,7 +12,7 @@
   package:
     name: "{{ common_package_list }}"
     state: present
-  become: yes
+  become: true
 
 #------------------------------------------------------------------------------
 # Manage Users and Groups
@@ -23,7 +23,7 @@
     gid: "{{ item.id }}"
     state: "{{ item.state }}"
   with_items: "{{ common_groups }}"
-  become: yes
+  become: true
 
 - name: Create User Accounts
   user:
@@ -33,7 +33,7 @@
     shell: "{{ item.shell }}"
     state: "{{ item.state }}"
   with_items: "{{ common_users }}"
-  become: yes
+  become: true
 
 - name: Add Authorized Key
   authorized_key:
@@ -41,7 +41,7 @@
     state: "{{ item.state }}"
     key: "{{ item.ssh_key }}"
   with_items: "{{ common_users }}"
-  become: yes
+  become: true
 
 - name: Add groups to sudo
   lineinfile:
@@ -49,10 +49,10 @@
     line: "%{{ item.name }} {{ item.permission }}"
     state: "{{ item.state }}"
     mode: 0440
-    create: yes
+    create: true
     validate: "visudo -cf %s"
   with_items: "{{ common_sudoers }}"
-  become: yes
+  become: true
 
 #------------------------------------------------------------------------------
 # Set the Hostname
@@ -64,8 +64,9 @@
   failed_when: 
     - result.failed 
     - ansible_virtualization_type != 'docker'
+    - ansible_virtualization_type != 'podman'
     - ansible_virtualization_type != 'containerd'
-  become: yes
+  become: true
 
 #------------------------------------------------------------------------------
 # Set the Login Warning Banner
@@ -75,7 +76,7 @@
     content: "{{ common_motd }}"
     dest: "{{ item }}"
     mode: 0644
-    backup: yes
+    backup: true
   changed_when: false
   with_items:
     - /etc/motd

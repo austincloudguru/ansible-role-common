@@ -1,11 +1,12 @@
 ---
 galaxy_info:
   role_name: common
+  namespace: austincloudguru
   author: Mark Honomichl
   description: Common Ansible Role
   company: ACG
   license: MIT
-  min_ansible_version: 2.8
+  min_ansible_version: "2.8"
   platforms:
   - name: Amazon
     versions:
@@ -16,7 +17,6 @@ galaxy_info:
       - focal
   - name: EL
     versions:
-      - 7
-      - 8
+      - all
   galaxy_tags: []
 dependencies: []
