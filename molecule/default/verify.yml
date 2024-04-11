@@ -1,0 +1,37 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  vars_files:
+    - "../../defaults/main.yml"
+  tasks:
+    - name: Get the Groups
+      ansible.builtin.getent:
+        database: group
+
+    - name: Get the Users
+      ansible.builtin.getent:
+        database: passwd
+
+    - name: Verify keyfile exists
+      ansible.builtin.stat:
+        path: /home/bhope/.ssh/authorized_keys
+      register: reg_keyfile_config
+
+    - name: Verify inputs.conf
+      ansible.builtin.shell: |
+        set -o pipefail
+        grep 'sysadmin' /etc/sudoers.d/sysadmin
+      args:
+        executable: /bin/bash
+      register: config_settings
+      failed_when: config_settings.rc != 0
+      changed_when: config_settings.rc != 0
+
+    - name: Assert Results
+      ansible.builtin.assert:
+        that:
+          - getent_passwd.bhope is defined
+          - getent_group.sysadmin is defined
+          - reg_keyfile_config.stat.exists
+        quiet: true
